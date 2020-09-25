@@ -1,0 +1,57 @@
+
+<h1 ca-highlight class="page-title">Books</h1>
+
+<input type='checkbox'  [checked]='showImages'  (click)='toggleImages()'  /> Show Covers
+
+<table class="table table-condensed table-striped table-hover"  >
+    <thead ca-highlight highlight-class='table-header'> 
+        <tr>
+            <th *ngIf='showImages'>
+                Poster
+                <ca-range 
+                [min]='75' 
+                [max]='200' 
+                [delta]='15' 
+                
+                [(value)]='imageWidth' 
+                
+                
+
+
+                (changed)='onImageWidthInfoChanged($event)'
+                ></ca-range>
+            </th>
+            <th    >Title</th>
+            <th>Author</th>
+            <th>Price</th>
+            <th>Release Date</th>
+            <th>Rating</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr  *ngFor='let book of books' [routerLink]="['/book/details',book.isbn]" >
+
+
+
+            <td *ngIf='showImages'   >  
+                
+                <img [hidden]='!showImages'  [src]='book.cover|altvalue:book.isbn:".jpg"|prefix:"/assets/images/books/"'  [style.width.px]='imageWidth' >
+            </td>
+            <td ca-highlight='lightskyblue' >{{book.title|uppercase}}</td>
+            <td ca-highlight='lightyellow'>{{book. author|lowercase}} </td>
+            <td>{{book.price|currency:'INR'}}</td>
+            <td>{{book.releaseDate|date:"MMMM yyyy"|uppercase}}</td>
+            <td>
+                <ca-rating value='{{book.rating}}'  ></ca-rating>
+                {{book.rating|ratingadvise}} 
+
+            </td>
+        </tr>
+      
+        
+    </tbody>
+</table>
+
+
+<hr/>
+<p class='tags'>Total books: {{books.length}}</p>

@@ -1,0 +1,64 @@
+
+<h1 class='page-title'>Add New Book</h1>
+
+<div class='container'>
+
+
+        <div class='form-group'>
+            <label for='isbn'>isbn</label>
+            <input type='text' class='form-control' id='isbn'  [(ngModel)]='book.isbn'   aria-describedby='isbnlHelp' placeholder='enter the value of isbn'>
+            <small id='isbnHelp' class='form-text text-muted'>Enter the value of isbn</small>
+        </div>
+        
+        <div class='form-group'>
+            <label for='title'>Book Title</label>
+            <input type='text' class='form-control' id='title'  [(ngModel)]='book.title'   aria-describedby='titlelHelp' placeholder='enter the value of title'>
+            <small id='titleHelp' class='form-text text-muted'>Enter the value of title</small>
+        </div>
+        
+        <div class='form-group'>
+            <label for='author'>author</label>
+            <input type='text' class='form-control' id='author'  [(ngModel)]='book.author'   aria-describedby='authorlHelp' placeholder='enter the value of author'>
+            <small id='authorHelp' class='form-text text-muted'>Enter the value of author</small>
+        </div>
+        
+        <div class='form-group'>
+            <label for='price'>price</label>
+            <input type='text' class='form-control' id='price'  [(ngModel)]='book.price'   aria-describedby='pricelHelp' placeholder='enter the value of price'>
+            <small id='priceHelp' class='form-text text-muted'>Enter the value of price</small>
+        </div>
+        
+        <div class='form-group'>
+            <label for='rating'>rating</label>
+            <input type='range' min='1' max='5' class='form-control' id='rating' title='{{book.rating}}' [(ngModel)]='book.rating'   aria-describedby='ratinglHelp' placeholder='enter the value of rating'>
+            <small id='ratingHelp' class='form-text text-muted'>Value should be 1-5. Current Rating {{book.rating}} </small>
+        </div>
+        
+        <div class='form-group'>
+            <label for='votes'>votes</label>
+            <input type='text' class='form-control' id='votes'  [(ngModel)]='book.votes'   aria-describedby='voteslHelp' placeholder='enter the value of votes'>
+            <small id='votesHelp' class='form-text text-muted'>Enter the value of votes</small>
+        </div>
+        
+        <div class='form-group'>
+            <label for='description'>description</label>
+            <input type='text' class='form-control' id='description'  [(ngModel)]='book.description
+            '   aria-describedby='descriptionlHelp' placeholder='enter the value of description'>
+            <small id='descriptionHelp' class='form-text text-muted'>Enter the value of description</small>
+        </div>
+        
+    
+        
+        <button class='btn btn-primary btn-lg' (click)='onAddBook()' >Add Book</button>
+
+        <ul class='error'>
+            <li *ngFor='let error of errors' class='text-danger'>{{error}}</li>
+        </ul>
+
+
+
+    
+
+</div>
+
+

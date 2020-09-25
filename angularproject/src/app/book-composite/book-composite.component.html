@@ -1,0 +1,27 @@
+
+<h1 class="page-title">Our Authors</h1>
+
+<div class="row">
+
+    <!-- displays a lis to all  books-->
+    <div class="col-md-4 book-list">
+        <ul class="list-group">
+            <li *ngFor='let book of books' 
+                class="list-group-item list-group-item-action"
+                [ngClass]="{'active': book===selectedBook}"
+                (click)='selectBook(book)'
+                >
+                {{book.title|uppercase}}
+            </li>
+        </ul>
+    </div>
+
+
+    <!--displays detailed info for the selcted book-->
+    <div class="col-md-8 book-details">
+        <!-- reusing my BookInfoComponent -->
+        <app-book-info [book]='selectedBook' ></app-book-info>
+
+    </div>
+
+</div>

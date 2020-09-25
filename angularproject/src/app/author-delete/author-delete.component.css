@@ -1,0 +1,14 @@
+.form-buttons {
+    padding-top: 30px;
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+ 
+
+.deleteauthor{
+    margin-right: 2.5px;
+}
+.backtolist{
+    margin-left: 2.5px;
+}

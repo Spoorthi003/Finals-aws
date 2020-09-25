@@ -1,0 +1,38 @@
+<h1>Authors</h1>
+ 
+<table class="table table-condensed table-striped table-hover"  >
+    <thead ca-highlight highlight-class='table-header'> 
+        <tr>
+            <th  *ngIf='showImages'>Photograph <ca-range 
+                [min]='40' 
+                [max]='800' 
+                [delta]='15' 
+                
+                [(value)]='imageWidth' 
+                 (changed)='onImageWidthInfoChanged($event)'
+                ></ca-range>
+            </th>
+            <th>Name</th>
+            <th>Biography</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr  *ngFor='let author of authors' [routerLink]="['/author/details',author.id]" >
+           
+            <td *ngIf='showImages'   >  
+                
+                <img [hidden]='!showImages'  [src]='author.photoUrl|altvalue:author.id:".jpg"|prefix:"/assets/images/authors/"'  [style.width.px]='imageWidth' >
+            </td>
+             <td ca-highlight='lightskyblue' class = 'titlewidth'>{{author.name|uppercase}}</td>
+             <td ca-highlight='lightyellow'>{{author.biography}} </td>
+             <td ca-highlight='lightorange'>{{author.email}}</td>
+        
+        </tr>
+      
+        
+    </tbody>
+</table>
+ 
+<hr/>
+<p class='tags'>Total authors: {{authors.length}}</p>

@@ -1,0 +1,12 @@
+tr{
+    cursor: pointer;
+}
+
+.table-header{
+    color:white;
+    background:purple;
+}
+
+.titlewidth{
+    min-width: 40px;
+}
